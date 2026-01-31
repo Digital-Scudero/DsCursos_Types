@@ -12,7 +12,7 @@ on:
 
 permissions:
   contents: read # ← Pode ler código
-  packages: write create # ← Pode escrever pacotes
+  packages: create # ← Pode escrever pacotes
 
 jobs:
   publish:
