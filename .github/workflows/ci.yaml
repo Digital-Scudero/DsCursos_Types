@@ -1,48 +1,41 @@
-# .github/workflows/publish.yml
-
 name: Publicar Tipos
 
 on:
   push:
     branches:
-      - main # ← Só publica quando push em main
+      - main
     # paths:
-    #   - "src/**" # ← Só publica se tipos mudaram
-    #   - "package.json"
+    #   - 'src/**'
+    #   - 'package.json'
 
 permissions:
-  contents: read # ← Pode ler código
-  packages: create # ← Pode escrever pacotes
+  contents: read
+  packages: write
 
 jobs:
   publish:
-    runs-on: ubuntu-latest # ← Executa em servidor GitHub
+    runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Baixa o código
       - name: 📥 Checkout
         uses: actions/checkout@v4
 
-      # 2️⃣ Instala pnpm
       - name: 📦 Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
 
-      # 3️⃣ Instala Node.js e configura npm
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          registry-url: "https://npm.pkg.github.com" # ← Autentica com GitHub
+          registry-url: "https://npm.pkg.github.com"
           scope: "@dscursos"
 
-      # 4️⃣ Instala dependências e compila
       - name: 🔨 Build
         run: pnpm install && pnpm build
 
-      # 5️⃣ Publica no GitHub Packages
       - name: 🚀 Publicar
         run: pnpm publish --no-git-checks
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ← Token automático
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
