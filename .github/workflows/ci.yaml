@@ -6,13 +6,13 @@ on:
   push:
     branches:
       - main # ← Só publica quando push em main
-    paths:
-      - "src/**" # ← Só publica se tipos mudaram
-      - "package.json"
+    # paths:
+    #   - "src/**" # ← Só publica se tipos mudaram
+    #   - "package.json"
 
 permissions:
   contents: read # ← Pode ler código
-  packages: write # ← Pode escrever pacotes
+  packages: write, create # ← Pode escrever pacotes
 
 jobs:
   publish:
