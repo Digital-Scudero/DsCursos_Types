@@ -30,12 +30,12 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://npm.pkg.github.com"
-          scope: "@gugacarbo"
+          scope: "@dscursos"
 
       - name: 🔨 Build
         run: pnpm install && pnpm build
 
-      - name: 🚀 Publicar
-        run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+      # - name: 🚀 Publicar
+      #   run: pnpm publish --no-git-checks
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
