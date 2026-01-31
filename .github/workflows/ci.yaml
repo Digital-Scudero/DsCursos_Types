@@ -43,6 +43,6 @@ jobs:
 
       # 5️⃣ Publica no GitHub Packages
       - name: 🚀 Publicar
-        run: pnpm publish
+        run: pnpm publish --no-git-checks
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ← Token automático
