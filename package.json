@@ -1,5 +1,5 @@
 {
-    "name": "@dscursos/types",
+    "name": "@gugacarbo/types",
     "version": "1.0.0",
     "description": "Tipos compartilhados DsCursos",
     "main": "dist/index.js",
