@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "ES2020", 
+        "module": "ESNext", // ← Usar import/export moderno
+        "lib": [
+            "ES2020"
+        ], 
+        "declaration": true, // ← ⭐ Gera .d.ts (tipos publicados)
+        "declarationMap": true, // ← Mapeia tipos de volta ao .ts original
+        "outDir": "./dist", // ← Salva compilação em ./dist
+        "strict": true, // ← Máxima segurança de tipos
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
